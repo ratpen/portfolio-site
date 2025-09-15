@@ -3,19 +3,11 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
-  font-family: Jersey 10, sans-serif;
+  font-family: "Jersey 10", sans-serif;
   color: white;
   font-size: 16px;
+  overflow: hidden; /* static on desktop */
 }
-
-@media (max-width: 768px) {
-  html, body {
-    height: auto;
-    overflow-y: auto; /* enable vertical scroll */
-  }
-}
-
 
 .jersey-10-regular {
   font-family: "Jersey 10", sans-serif;
@@ -23,7 +15,7 @@ body, html {
   font-style: normal;
 }
 
-
+/* Title */
 .site-title {
   position: absolute;
   top: 2%;
@@ -32,17 +24,14 @@ body, html {
   text-align: center;
   z-index: 999;
 }
-
 .site-title h1 {
-  font-family: Jersey 10, sans-serif;
-  font-size: 3rem;
-  color: #ED254E; /* Strawberry */
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #ED254E;
   text-shadow: 0 0 10px #ED254E, 0 0 20px #ED254E;
 }
 .site-title p {
-  font-family: Jersey 10, sans-serif;
-  font-size: 1.2rem;
-  color: #ED254E; /* Strawberry */
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  color: #ED254E;
   text-shadow: 0 0 6px #ED254E;
 }
 
@@ -64,26 +53,24 @@ body, html {
   z-index: -2;
 }
 
-
 /* Overlay Title */
 .overlay {
   position: absolute;
   z-index: 1;
   text-align: center;
-  font-family: Jersey 10, sans-serif;
+  font-family: "Jersey 10", sans-serif;
   padding-top: 25vh;
   text-shadow: 0 0 6px rgba(253, 253, 253, 0.6);
 }
 
 /* Icons */
-/* Base icon styles */
 .icon {
   position: absolute;
   z-index: 2;
   text-align: center;
 }
 .icon img {
-  width: 70px; /* fixed size for desktop */
+  width: 70px;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -91,8 +78,6 @@ body, html {
   transform: scale(1.2) rotate(-5deg);
   opacity: 0.85;
 }
-
-/* Label styling */
 .icon-label {
   display: block;
   position: absolute;
@@ -100,16 +85,16 @@ body, html {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 0.2rem;
-  font-weight: italic;
-  font-family: 'Jersey 10', sans-serif;
-  font-size: 0.8rem;
+  font-style: italic;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 1.5rem;
   color: #fb0e3d;
   text-shadow: 0 0 4px #011936;
   pointer-events: none;
   white-space: nowrap;
 }
 
-/* Scattered positions (percent-based, same as before) */
+/* Scattered positions (desktop) */
 .icon1 { top: 20%; left: 43%; }
 .icon2 { top: 65%; left: 75%; }
 .icon3 { top: 30%; left: 30%; }
@@ -118,52 +103,7 @@ body, html {
 .icon6 { top: 25%; left: 85%; }
 .icon7 { top: 50%; left: 10%; }
 
-/* Make icons smaller on tablets/phones */
-@media (max-width: 1024px) {
-  .icon img {
-    width: 6vw; /* scales down on medium screens */
-    max-width: 60px;
-  }
-  .icon-label {
-    font-size: 2vw;
-  }
-}
-
-@media (max-width: 600px) {
-  .icon img {
-    width: 8vw; /* slightly bigger relative to viewport so they don’t vanish */
-    max-width: 50px;
-  }
-  .icon-label {
-    font-size: 3vw;
-  }
-}
-
-@media (max-width: 768px) {
-  .icon img { width: 8vw; max-width: 60px; }
-  .icon-label { font-size: 3vw; }
-}
-
-
-
-body {
-  margin: 0;
-  height: 100vh;
-  background: #011936; /* your retro dark bg */
-  overflow: hidden;
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  .video-bg {
-    position: relative;
-    height: auto;
-  }
-}
-
-
-
-/* Section Overlays */
+/* Sections / Overlays */
 .section {
   display: none;
   position: fixed;
@@ -173,9 +113,7 @@ body {
   overflow-y: auto;
   padding: 2rem;
 }
-.section.active {
-  display: block;
-}
+.section.active { display: block; }
 .close {
   position: absolute;
   top: 20px;
@@ -196,11 +134,7 @@ body {
   overflow-y: auto;
   padding: 2rem;
 }
-
-.overlay.active {
-  display: block;
-}
-
+.overlay.active { display: block; }
 .overlay .close {
   position: absolute;
   top: 1rem;
@@ -210,18 +144,15 @@ body {
   cursor: pointer;
 }
 
+/* Gallery */
 .gallery-page {
   overflow-y: auto;
   scroll-behavior: smooth;
-scrollbar-width: thin;
+  scrollbar-width: thin;
   scrollbar-color: #ED254E #011936;
-  scrollbar-arrow-color: #ED254E;
-}
-.gallery-page {
-  background-image: -moz-radial-gradient(circle, #011936 0%, #000000 100%);
-  background-image: -webkit-radial-gradient(circle, #011936 0%, #000000 100%);
+  background: radial-gradient(circle, #011936 0%, #000000 100%);
   color: #ED254E;
-  font-family: jersey 10, sans-serif;
+  font-family: "Jersey 10", sans-serif;
   padding: 2rem;
   text-align: center;
 }
@@ -229,32 +160,18 @@ scrollbar-width: thin;
   position: static;
   transform: none;
   margin-bottom: 1rem;
-  font-family: jersey 10, sans-serif;
 }
-.gallery-page header {
-  margin-bottom: 2rem;
-  font-family: jersey 10, sans-serif;
-}
-
 .gallery-page h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  font-family: jersey 10, sans-serif;
 }
-
 .back-btn {
-  size: 50%;
   color: #ED254E;
   text-decoration: none;
   font-weight: bold;
   font-family: monospace;
 }
-
-.back-btn:hover {
-  color: #fff;
-}
-
-/* Reuse gallery grid */
+.back-btn:hover { color: #fff; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -262,46 +179,41 @@ scrollbar-width: thin;
   max-width: 1000px;
   margin: 0 auto;
 }
-
 .gallery-grid img {
   width: 100%;
   border: 4px solid #ED254E;
   border-radius: 4px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-
 .gallery-grid img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 12px #ED254E, 0 0 20px #ED254E;
 }
 
+/* About */
 .about-me {
-
   color: #ED254E;
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  font-family:'Jersey 10', sans-serif;
 }
-
-
 h2 {
-  font-family: 'Jersey 10', sans-serif;
-  font-size: 4.5rem;
+  font-family: "Jersey 10", sans-serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
   text-align: center;
-  color: #ED254E; /* Strawberry */
+  color: #ED254E;
   text-shadow: 0 0 6px #ED254E;
 }
-
 .social-links {
   margin-top: 1rem;
-display: flex;
+  display: flex;
   justify-content: center;
   gap: 1.5rem;
- font-size: xx-large;
-  font-family: 'Jersey 10', sans-serif;
+  font-size: xx-large;
+  font-family: "Jersey 10", sans-serif;
 } 
+
 /* Retro Cursor */
 body { cursor: none; }
 .cursor {
@@ -343,33 +255,41 @@ body { cursor: none; }
 
 /* Tablet adjustments */
 @media (max-width: 1024px) {
-  .site-title h1 {
-    font-size: 2.5rem;
-  }
-  .icon img {
-    width: 120px; /* smaller icons */
-  }
+  .site-title h1 { font-size: 2.5rem; }
+  .icon img { width: 120px; }
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  body, html {
+  html, body {
+    height: auto;
+    overflow-y: auto; /* allow scroll */
     font-size: 14px;
-    overflow: auto; /* allow scrolling on mobile */
   }
 
-  .site-title h1 {
-    font-size: 2rem;
+  /* Video flexibility */
+  .video-bg {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
   }
-  .site-title p {
-    font-size: 1rem;
+  .video-bg video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
   }
 
-  /* Stack icons instead of scattering */
+  .site-title h1 { font-size: 2rem; }
+  .site-title p { font-size: 1rem; }
+
+  /* Reset scattered positioning */
   .icon {
-    position: static;
-    display: inline-block;
-    margin: 1rem auto;
+    position: relative !important; /* override absolute positioning */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
   }
   .icon img {
     width: 100px;
@@ -382,22 +302,24 @@ body { cursor: none; }
     text-align: center;
   }
 
-  /* Galleries & overlays */
+  /* Make icons display in a single vertical column */
+  .icons-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 4rem; /* space at bottom for scroll */
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 }
 
-/* Very small devices (phones <480px) */
+
+/* Very small devices */
 @media (max-width: 480px) {
-  .site-title h1 {
-    font-size: 1.5rem;
-  }
-  .icon img {
-    width: 80px;
-    max-width: 60vw;
-  }
-  h2 {
-    font-size: 2rem;
-  }
+  .site-title h1 { font-size: 1.5rem; }
+  .icon img { width: 80px; max-width: 60vw; }
+  h2 { font-size: 2rem; }
 }
