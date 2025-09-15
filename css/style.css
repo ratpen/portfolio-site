@@ -1,13 +1,12 @@
 /* Reset + Body */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: "Jersey 10", sans-serif;
-  color: white;
-  font-size: 16px;
-  overflow: hidden; /* static on desktop */
+/* Desktop lock */
+@media (min-width: 769px) {
+  body, html {
+    overflow: hidden;
+    height: 100%;
+  }
 }
+
 
 .jersey-10-regular {
   font-family: "Jersey 10", sans-serif;
@@ -42,6 +41,12 @@ body, html {
   height: 100vh;
   overflow: hidden;
 }
+@media (max-width: 768px) {
+  .video-bg video {
+    position: relative;
+  }
+}
+
 .video-bg video {
   position: fixed;
   top: 50%;
@@ -94,14 +99,23 @@ body, html {
   white-space: nowrap;
 }
 
+.icon-label {
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+}
+
+
 /* Scattered positions (desktop) */
-.icon1 { top: 20%; left: 43%; }
-.icon2 { top: 65%; left: 75%; }
-.icon3 { top: 30%; left: 30%; }
-.icon4 { top: 55%; left: 45%; }
-.icon5 { top: 35%; left: 65%; }
-.icon6 { top: 25%; left: 85%; }
-.icon7 { top: 50%; left: 10%; }
+/* Only scatter icons on desktop */
+@media (min-width: 769px) {
+  .icon1 { top: 20%; left: 43%; }
+  .icon2 { top: 65%; left: 75%; }
+  .icon3 { top: 30%; left: 30%; }
+  .icon4 { top: 55%; left: 45%; }
+  .icon5 { top: 35%; left: 65%; }
+  .icon6 { top: 25%; left: 85%; }
+  .icon7 { top: 50%; left: 10%; }
+}
+
 
 /* Sections / Overlays */
 .section {
