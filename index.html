@@ -3,88 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nate's Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jersey+10&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-  <!-- Retro Cursor -->
+   <!-- Custom Retro Cursor -->
   <div class="cursor"></div>
-
+  
   <!-- Background Video -->
   <div class="video-bg">
     <video autoplay muted loop playsinline>
       <source src="media/background-video.mp4" type="video/mp4">
+      
     </video>
-  </div>
+    <div class="noise"></div>
 
-  <!-- Title -->
-  <div class="site-title">
-    <h1>Nate's Portfolio</h1>
-    <p>Tattoo Artist & Designer</p>
-  </div>
-
-  <!-- Icons -->
-  <div class="icons-wrapper">
+    <!-- Title -->
+    <div class="site-title">
+      <h1>Nate's Portfolio</h1>
+      <p>Tattoo Artist & Designer</p></div>
+   
+<div class="icon-wrapper">
+    <!-- Scattered Icons -->
     <a href="https://instagram.com/nate.inks/" class="icon icon1">
-      <img src="icons/instagram1.png" alt="Instagram">
-      <span class="icon-label">Instagram</span>
+      <img src="icons/instagram1.png" alt="Instagram"style="width:250px;">
+        <span class="icon-label">Instagram</span>
     </a>
 
     <a href="https://nateinks.blogspot.com/" class="icon icon2">
-      <img src="icons/blog1.png" alt="Blog">
+      <img src="icons/blog1.png" alt="Blog"style="width:200px;">
       <span class="icon-label">Blog</span>
     </a>
 
-    <a href="tattoo-gallery.html" class="icon icon3">
-      <img src="icons/tattoo1.png" alt="Tattoo Gallery">
-      <span class="icon-label">About Me</span>
-    </a>
 
-    <a href="art-gallery.html" class="icon icon4">
-      <img src="icons/art1.png" alt="Art Gallery">
-      <span class="icon-label">Art Gallery</span>
-    </a>
 
-    <a href="contact.html" class="icon icon5">
-      <img src="icons/email1.png" alt="Email">
-      <span class="icon-label">Contact Me</span>
-    </a>
+  <!-- Tattoo Gallery Icon -->
+  <a href="tattoo-gallery.html" class="icon icon3">
+    <img src="icons/tattoo1.png" alt="About Me" style="width:250px;">
+    <span class="icon-label">About Me</span>
+  </a>
 
+  <!-- Art Gallery Icon -->
+  <a href="art-gallery.html" class="icon icon4">  
+    <img src="icons/art1.png" alt="Art Gallery" style="width:250px;">
+    <span class="icon-label">Art Gallery</span>
+  </a>
+
+  <!-- Email Icon -->
+  <a href="contact.html" class="icon icon5">
+    <img src="icons/email1.png" alt="Email" style="width:250px;">
+    <span class="icon-label">Contact Me</span>
+  </a>
+
+
+
+   
+    <!-- Open Contact Form -->
     <a href="#" class="icon icon6" onclick="openSection('contact')">
-      <img src="icons/contact1.png" alt="Contact">
+      <img src="icons/contact1.png" alt="Contact" style="width:250px;" >
       <span class="icon-label">Socials</span>
     </a>
+    
 
     <a href="https://github.com/ratpen" class="icon icon7">
-      <img src="icons/github1.png" alt="GitHub">
+      <img src="icons/github1.png" alt="GitHub" style="width:200px;" >
       <span class="icon-label">GitHub</span>
     </a>
   </div>
 
-  <!-- Overlays -->
+
+  <!-- Art Gallery Overlay -->
   <div id="art" class="section">
     <button class="close" onclick="closeSection('art')">✖</button>
     <h2>Art Gallery</h2>
-    <div class="gallery"></div>
-  </div>
-
-  <div id="contact" class="section">
-    <button class="close" onclick="closeSection('contact')">✖</button>
-    <h2>Socials</h2>
-    <div class="social-links">
-      <a href="https://instagram.com/nate.inks/" target="_blank">Instagram</a>
-      <a href="https://open.spotify.com/user/73vih2kqgtbban0wxrl8gdu6f" target="_blank">Spotify</a>
-      <a href="https://www.tumblr.com/blog/ratpenx" target="_blank">Tumblr</a>
-      <a href="https://pin.it/9AaSjb2ot" target="_blank">Pinterest</a>
-      <a href="https://nateinks.blogspot.com/" target="_blank">Blog</a>
+    <div class="gallery">
     </div>
   </div>
 
-  <!-- Scripts -->
+<!-- Contact Icon/Button to open -->
+<button class="contact-icon" onclick="openSection('contact')">✉️</button>
+
+<!-- Contact Overlay -->
+<div id="contact" class="section" >
+    <button class="close" onclick="closeSection('contact')">✖</button>
+    <h2>Socials</h2>
+  <div class="social-links">
+    <a href="https://instagram.com/nate.inks/" target="_blank">Instagram</a>
+    <a href="https://open.spotify.com/user/73vih2kqgtbban0wxrl8gdu6f" target="_blank">Spotify</a>
+    <a href="https://www.tumblr.com/blog/ratpenx" target="_blank">Tumblr</a>
+    <a href="https://pin.it/9AaSjb2ot" target="_blank">Pinterest</a>
+    <a href="https://nateinks.blogspot.com/" target="_blank">Blog</a>
+  </div>
+</div>
+</div>
+
+  <!-- Custom Retro Cursor -->
+  <div class="cursor"></div>
+
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
-
