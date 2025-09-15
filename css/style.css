@@ -276,25 +276,36 @@ body { cursor: none; }
 }
 
 /* Mobile adjustments */
+
 @media (max-width: 768px) {
-  html, body {
-    height: auto;
-    overflow-y: auto; /* allow scroll */
-    font-size: 14px;
-  }
+  /* Unlock scrolling */
+html, body {
+  height: auto;   /* allow flexible height */
+  min-height: 100vh;
+  overflow-y: auto;
+  font-size: 14px;
+}
 
   /* Video flexibility */
-  .video-bg {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-  }
-  .video-bg video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
+.video-bg {
+  position: fixed;  
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-bg video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
   .site-title h1 { font-size: 2rem; }
   .site-title p { font-size: 1rem; }
