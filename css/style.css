@@ -1,17 +1,12 @@
 /* Reset + Body */
-/* Desktop lock */
-@media (min-width: 769px) {
-  body, html {
-    overflow: hidden;
-    height: 100%;
-  }
-}
-
-
-.jersey-10-regular {
+body, html {
+  margin: 0;
+  padding: 0;
   font-family: "Jersey 10", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  color: white;
+}
+@media (min-width: 769px) {
+  body, html { overflow: hidden; height: 100%; }
 }
 
 /* Title */
@@ -36,40 +31,27 @@
 
 /* Background Video */
 .video-bg {
-  position: relative; 
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-.video-bg video {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   z-index: -2;
 }
-
-/* Overlay Title */
-.overlay {
-  position: absolute;
-  z-index: 1;
-  text-align: center;
-  font-family: "Jersey 10", sans-serif;
-  padding-top: 25vh;
-  text-shadow: 0 0 6px rgba(253, 253, 253, 0.6);
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-/* Icons */
+/* Icons (desktop scattered) */
 .icon {
   position: absolute;
   z-index: 2;
   text-align: center;
 }
 .icon img {
-  width: 70px;
+  width: 200px;
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -85,7 +67,6 @@
   transform: translateX(-50%);
   margin-top: 0.2rem;
   font-style: italic;
-  font-family: "Jersey 10", sans-serif;
   font-size: 1.5rem;
   color: #fb0e3d;
   text-shadow: 0 0 4px #011936;
@@ -93,7 +74,7 @@
   white-space: nowrap;
 }
 
-/* Scattered positions (desktop) */
+/* Scattered positions */
 .icon1 { top: 20%; left: 43%; }
 .icon2 { top: 65%; left: 75%; }
 .icon3 { top: 30%; left: 30%; }
@@ -123,80 +104,6 @@
   font-size: 2rem;
   cursor: pointer;
 }
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: #011936;
-  color: #ED254E;
-  z-index: 10000;
-  overflow-y: auto;
-  padding: 2rem;
-}
-.overlay.active { display: block; }
-.overlay .close {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
-  font-size: 3rem;
-  color: #ED254E;
-  cursor: pointer;
-}
-
-/* Gallery */
-.gallery-page {
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #ED254E #011936;
-  background: radial-gradient(circle, #011936 0%, #000000 100%);
-  color: #ED254E;
-  font-family: "Jersey 10", sans-serif;
-  padding: 2rem;
-  text-align: center;
-}
-.gallery-page .site-title {
-  position: static;
-  transform: none;
-  margin-bottom: 1rem;
-}
-.gallery-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.back-btn {
-  color: #ED254E;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: monospace;
-}
-.back-btn:hover { color: #fff; }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-.gallery-grid img {
-  width: 100%;
-  border: 4px solid #ED254E;
-  border-radius: 4px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.gallery-grid img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px #ED254E, 0 0 20px #ED254E;
-}
-
-/* About */
-.about-me {
-  color: #ED254E;
-  padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
 h2 {
   font-family: "Jersey 10", sans-serif;
   font-size: clamp(2rem, 6vw, 4.5rem);
@@ -210,8 +117,26 @@ h2 {
   justify-content: center;
   gap: 1.5rem;
   font-size: xx-large;
-  font-family: "Jersey 10", sans-serif;
-} 
+}
+
+/* Gallery Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.gallery img {
+  width: 100%;
+  border: 4px solid #ED254E;
+  border-radius: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #ED254E, 0 0 20px #ED254E;
+}
 
 /* Retro Cursor */
 body { cursor: none; }
@@ -242,9 +167,6 @@ body { cursor: none; }
   transform: translate(-50%, -50%);
   opacity: 0.6;
   z-index: 9998;
-  image-rendering: pixelated;
-  box-shadow: 0 0 3px rgba(0,255,255,0.4),
-              0 0 6px rgba(255,0,255,0.3);
   animation: trailFade 0.4s linear forwards;
 }
 @keyframes trailFade {
@@ -252,43 +174,33 @@ body { cursor: none; }
   to   { opacity: 0;   transform: translate(-50%, -50%) scale(0.5); }
 }
 
-/* Tablet adjustments */
+/* Tablet */
 @media (max-width: 1024px) {
   .site-title h1 { font-size: 2.5rem; }
-  .icon img { width: 120px; }
+  .icon img { width: 150px; }
 }
 
-/* Mobile adjustments */
+/* Mobile */
 @media (max-width: 768px) {
   html, body {
-    height: auto;
-    overflow-y: auto; /* allow scroll */
+    height: auto !important;
+    min-height: 100vh;
+    overflow-y: auto !important;
     font-size: 14px;
   }
-
-  /* Video flexibility */
-  .video-bg {
-    position: relative;
-    height: auto;
-    min-height: 100vh;
-  }
-  .video-bg video {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-
-  .site-title h1 { font-size: 2rem; }
-  .site-title p { font-size: 1rem; }
-
-  /* Reset scattered positioning */
-  .icon {
-    position: relative !important; /* override absolute positioning */
+  .icons-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem auto;
+    gap: 2rem;
+    margin-top: 25vh;
+    padding-bottom: 6rem;
+    position: relative;
+    z-index: 3;
+  }
+  .icon {
+    position: relative !important;
+    margin: 0 auto;
   }
   .icon img {
     width: 100px;
@@ -296,29 +208,15 @@ body { cursor: none; }
   }
   .icon-label {
     position: static;
-    display: block;
     margin-top: 0.5rem;
     text-align: center;
   }
-
-  /* Make icons display in a single vertical column */
-  .icons-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    padding-bottom: 4rem; /* space at bottom for scroll */
-  }
-
-  .gallery-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
 }
 
-
-/* Very small devices */
+/* Very Small Devices */
 @media (max-width: 480px) {
   .site-title h1 { font-size: 1.5rem; }
-  .icon img { width: 80px; max-width: 60vw; }
+  .icon img { width: 90px; max-width: 70vw; }
   h2 { font-size: 2rem; }
 }
+
