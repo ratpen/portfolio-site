@@ -36,28 +36,20 @@
 
 /* Background Video */
 .video-bg {
-  position: fixed;  /* stays behind everything */
-  top: 0;
-  left: 0;
+  position: relative; 
   width: 100%;
-  height: 100%;
-  z-index: -1;
+  height: 100vh;
   overflow: hidden;
 }
-
 .video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* makes it always cover */
-}
-/* Ensure video covers full screen on smaller devices */
-
-@media (max-width: 768px) {
-  .video-bg,
-  .video-bg video {
-    width: 100vw;
-    height: 100vh;
-  }
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -2;
 }
 
 /* Overlay Title */
@@ -101,23 +93,14 @@
   white-space: nowrap;
 }
 
-.icon-label {
-  font-size: clamp(0.8rem, 2vw, 1.5rem);
-}
-
-
 /* Scattered positions (desktop) */
-/* Only scatter icons on desktop */
-@media (min-width: 769px) {
-  .icon1 { top: 20%; left: 43%; }
-  .icon2 { top: 65%; left: 75%; }
-  .icon3 { top: 30%; left: 30%; }
-  .icon4 { top: 55%; left: 45%; }
-  .icon5 { top: 35%; left: 65%; }
-  .icon6 { top: 25%; left: 85%; }
-  .icon7 { top: 50%; left: 10%; }
-}
-
+.icon1 { top: 20%; left: 43%; }
+.icon2 { top: 65%; left: 75%; }
+.icon3 { top: 30%; left: 30%; }
+.icon4 { top: 55%; left: 45%; }
+.icon5 { top: 35%; left: 65%; }
+.icon6 { top: 25%; left: 85%; }
+.icon7 { top: 50%; left: 10%; }
 
 /* Sections / Overlays */
 .section {
@@ -276,36 +259,25 @@ body { cursor: none; }
 }
 
 /* Mobile adjustments */
-
 @media (max-width: 768px) {
-  /* Unlock scrolling */
-html, body {
-  height: auto;   /* allow flexible height */
-  min-height: 100vh;
-  overflow-y: auto;
-  font-size: 14px;
-}
+  html, body {
+    height: auto;
+    overflow-y: auto; /* allow scroll */
+    font-size: 14px;
+  }
 
   /* Video flexibility */
-.video-bg {
-  position: fixed;  
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.video-bg video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
+  .video-bg {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+  .video-bg video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+  }
 
   .site-title h1 { font-size: 2rem; }
   .site-title p { font-size: 1rem; }
