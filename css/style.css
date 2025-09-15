@@ -60,23 +60,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .video-bg video {
-    position: relative;
-  }
-}
-
-.video-bg video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -2;
-}
-
 /* Overlay Title */
 .overlay {
   position: absolute;
