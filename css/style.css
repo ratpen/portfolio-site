@@ -68,13 +68,14 @@ body, html {
 }
 
 /* Icons */
+/* Base icon styles */
 .icon {
   position: absolute;
   z-index: 2;
   text-align: center;
 }
 .icon img {
-  width: 70px;
+  width: 70px; /* fixed size for desktop */
   cursor: pointer;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -82,25 +83,25 @@ body, html {
   transform: scale(1.2) rotate(-5deg);
   opacity: 0.85;
 }
+
 /* Label styling */
 .icon-label {
   display: block;
   position: absolute;
-   top: 80%; left: 45%; right: auto; bottom: auto;
-  margin-top: 0.1rem;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.2rem;
   font-weight: italic;
-  text-decoration-color: antiquewhite;
-  font-family:'Jersey 10', sans-serif;
-  font-size: 1rem;
+  font-family: 'Jersey 10', sans-serif;
+  font-size: 0.8rem;
   color: #fb0e3d;
-  text-shadow: 100px 0 500px #011936;
-  pointer-events: none; /* so hover stays on the icon */
+  text-shadow: 0 0 4px #011936;
+  pointer-events: none;
   white-space: nowrap;
 }
 
-
-
-/* Scatter positions */
+/* Scattered positions (percent-based, same as before) */
 .icon1 { top: 20%; left: 43%; }
 .icon2 { top: 65%; left: 75%; }
 .icon3 { top: 30%; left: 30%; }
@@ -108,6 +109,27 @@ body, html {
 .icon5 { top: 35%; left: 65%; }
 .icon6 { top: 25%; left: 85%; }
 .icon7 { top: 50%; left: 10%; }
+
+/* Make icons smaller on tablets/phones */
+@media (max-width: 1024px) {
+  .icon img {
+    width: 6vw; /* scales down on medium screens */
+    max-width: 60px;
+  }
+  .icon-label {
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .icon img {
+    width: 8vw; /* slightly bigger relative to viewport so they don’t vanish */
+    max-width: 50px;
+  }
+  .icon-label {
+    font-size: 3vw;
+  }
+}
 
 body {
   margin: 0;
